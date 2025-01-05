@@ -51,7 +51,7 @@ const Accordian = () => {
                 See Multiple
             
             </button>
-            <div className="accordian w-[500px] max-w-2xl">
+            <div className="accordian w-[500px] max-w-2xl ">
 
                 {data && data.length > 0 ? (
                 
@@ -65,6 +65,8 @@ const Accordian = () => {
                                     ? () => handleMultipleSelection(dataItem.id) 
                                     : () => handleSingleSelection(dataItem.id)
                                 }
+
+                                title={dataItem.id} 
                             >
                                 <h2
                                  className="font-bold text-lg md:text-xl lg:text-2xl"
@@ -79,8 +81,8 @@ const Accordian = () => {
                             </div>
                             {
                                 selected === dataItem.id || multiple.indexOf(dataItem.id) !== -1 ? (
-                                    <div className="content bg-white text-red-600 p-4 mt-2 rounded-lg h-auto">
-                                        <div dangerouslySetInnerHTML={ {__html: dataItem.answer} }></div>
+                                    <div className="content bg-white text-red-600 p-4 mt-2 rounded-lg h-auto text-left">
+                                        <div className="p-4 text-left" dangerouslySetInnerHTML={ {__html: dataItem.answer} }></div>
                                     </div>
                                 ) : null                             }
                         </div>
